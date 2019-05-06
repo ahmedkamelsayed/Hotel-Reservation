@@ -1,0 +1,41 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\booking;
+
+use App\contact;
+
+use Illuminate\Http\Request;
+
+use DB; 
+
+use PDF;
+
+
+//app('App\Http\Controllers\classController')->getroom();
+
+use App\Http\Controllers\mediator;
+
+//use App\lib\interface;
+
+class logiController extends Controller{
+
+    public function index(Request $req)
+    {
+        dd("welcome");
+
+         $email = $req->input('email');
+          $password = $req->input('pass');
+
+          $r ="your email or password is not correct";
+
+
+          if(($email == "admin@gmail.com")&&($password == "1234")){
+             return view('master');
+          }else{
+            return view('logi', ['r'=>$r]);
+          }
+    }  
+}
+?>
